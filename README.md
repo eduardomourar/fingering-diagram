@@ -3,11 +3,11 @@
 Flute Fingering Plugin for MuseScore 3.x is a tool to create scores with flute fingering.
 
 ### Introduction
-This is a plugin that automatically adds fingering for Concert Flute to the score. Note that
-if the staff instrument is not a flute then no fingering will be applied.
+This is a plugin that automatically adds fingering for Concert Flute or Piccolo to the score. Note that
+if the staff instrument is not a flute (`wind.flutes.flute*`) then no fingering will be applied.
 
 ### Installation
-* If using MuseScore version 3 then download the [plugin](https://github.com/eduardo/flute-fingering/archive/master.zip) and unzip it.
+* If using MuseScore version 3 then download the [plugin](https://github.com/eduardomourar/flute-fingering/archive/master.zip) and unzip it.
 
 * Install using the [instructions](https://musescore.org/en/handbook/3/plugins#installation) in the MuseScore 3.x Handbook, which typically 
 involves copying the QML file to the local MuseScore Plugin directory.
@@ -16,7 +16,7 @@ involves copying the QML file to the local MuseScore Plugin directory.
 to enable the plugin. Tick the box against 'flutefingering' and apply with 'OK'.
 
 * This plugin relies on a font being installed **concertflutefingering-v1.ttf**, which is included in this
-download. To install the font it is usually just a case of double-clicking the downloaded `.ttf` file 
+download. To install the font, it is usually just a case of double-clicking the downloaded `.ttf` file 
 and agreeing to the install process.
 
 ## IMPORTANT

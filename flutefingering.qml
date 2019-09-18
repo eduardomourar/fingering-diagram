@@ -10,7 +10,7 @@ import MuseScore 3.0
 
 MuseScore {
 	menuPath: 'Plugins.Flute Fingering'
-	version: '0.1'
+	version: '1.0'
 	description: 'Adds fingering for Concert Flute to the score'
 	requiresScore: true
 
@@ -43,14 +43,14 @@ MuseScore {
 		// Set text to below the staff
 		text.placement = Placement.BELOW;
 		// Turn off note relative placement
-		text.autoplace = false;
+		text.autoplace = true;
 	}
 
 	onRun: {
 		var offsetY = -0.4;
 		var offsetX = 0.2;
 		var fontSize = 48;
-		var basePitch = 59 // For B foot flute (B3);
+		var basePitch = 59; // For B foot flute (B3);
 		var startStaff;
 		var endStaff;
 		var endTick;
@@ -80,10 +80,12 @@ MuseScore {
 
 		// Loop over the selection
 		for (var staff = startStaff; staff <= endStaff; staff++) {
-			// Check for flute instrument part
-			var instrument = curScore.parts[staff].instrumentId;
-			if (!instrument || instrument !== 'wind.flutes.flute') {
-				console.log('Skipped staff ' + staff + ' for instrumentId: ' + instrument);
+			// Check for flute instrument parts
+			var instrument = curScore.parts[staff].instrumentId || '';
+			if (instrument === 'wind.flutes.flute' || instrument === 'wind.flutes.flute.piccolo' || instrument === 'wind.flutes.flute.alto') {
+				basePitch = 59;
+			} else {
+				console.log('Skipped staff ' + staff + ' for instrument: ' + instrument);
 				continue;
 			}
 			console.log('Staff ' + staff + ' instrument: ' + instrument);

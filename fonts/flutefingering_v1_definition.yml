@@ -1,0 +1,265 @@
+---
+flutefingering_v1:
+  filename: concertflutefingering-v1
+  fontname: Concert Flute Fingering
+  version: '1.0'
+  copyright: Copyright (c) 2019 Eduardo Rodrigues
+  mappings:
+    "0x0060":
+      filename: "fingering.svg"
+      element: "base"
+    "0x004F":
+      filename: "fingering.svg"
+      element: "b3"
+    "0x0050":
+      filename: "fingering.svg"
+      element: "c4"
+    "0x0051":
+      filename: "fingering.svg"
+      element: "cis4"
+    "0x0052":
+      filename: "fingering.svg"
+      element: "d4"
+    "0x0053":
+      filename: "fingering.svg"
+      element: "dis4"
+    "0x0054":
+      filename: "fingering.svg"
+      element: "e4"
+    "0x0055":
+      filename: "fingering.svg"
+      element: "f4"
+    "0x0056":
+      filename: "fingering.svg"
+      element: "fis4"
+    "0x0057":
+      filename: "fingering.svg"
+      element: "g4"
+    "0x0058":
+      filename: "fingering.svg"
+      element: "gis4"
+    "0x0059":
+      filename: "fingering.svg"
+      element: "a4"
+    "0x005A":
+      filename: "fingering.svg"
+      element: "ais4"
+    "0x0061":
+      filename: "fingering.svg"
+      element: "b4"
+    "0x0062":
+      filename: "fingering.svg"
+      element: "c5"
+    "0x0063":
+      filename: "fingering.svg"
+      element: "cis5"
+    "0x0064":
+      filename: "fingering.svg"
+      element: "d5"
+    "0x0065":
+      filename: "fingering.svg"
+      element: "dis5"
+    "0x0066":
+      filename: "fingering.svg"
+      element: "e5"
+    "0x0067":
+      filename: "fingering.svg"
+      element: "f5"
+    "0x0068":
+      filename: "fingering.svg"
+      element: "fis5"
+    "0x0069":
+      filename: "fingering.svg"
+      element: "g5"
+    "0x006A":
+      filename: "fingering.svg"
+      element: "gis5"
+    "0x006B":
+      filename: "fingering.svg"
+      element: "a5"
+    "0x006C":
+      filename: "fingering.svg"
+      element: "ais5"
+    "0x006D":
+      filename: "fingering.svg"
+      element: "b5"
+    "0x006E":
+      filename: "fingering.svg"
+      element: "c6"
+    "0x006F":
+      filename: "fingering.svg"
+      element: "cis6"
+    "0x0070":
+      filename: "fingering.svg"
+      element: "d6"
+    "0x0071":
+      filename: "fingering.svg"
+      element: "dis6"
+    "0x0072":
+      filename: "fingering.svg"
+      element: "e6"
+    "0x0073":
+      filename: "fingering.svg"
+      element: "f6"
+    "0x0074":
+      filename: "fingering.svg"
+      element: "fis6"
+    "0x0075":
+      filename: "fingering.svg"
+      element: "g6"
+    "0x0076":
+      filename: "fingering.svg"
+      element: "gis6"
+    "0x0077":
+      filename: "fingering.svg"
+      element: "a6"
+    "0x0078":
+      filename: "fingering.svg"
+      element: "ais6"
+    "0x0079":
+      filename: "fingering.svg"
+      element: "b6"
+    "0x007A":
+      filename: "fingering.svg"
+      element: "c7"
+    "0x2128":
+      filename: "fingering.svg"
+      element: "0x2128"
+    "0x2042":
+      filename: "fingering.svg"
+      element: "0x2042"
+    "0x21D8":
+      filename: "fingering.svg"
+      element: "0x21D8"
+    "0x207E":
+      filename: "fingering.svg"
+      element: "0x207E"
+    "0x1DC6":
+      filename: "fingering.svg"
+      element: "0x1DC6"
+    "0x1C9C":
+      filename: "fingering.svg"
+      element: "0x1C9C"
+    "0x1B35":
+      filename: "fingering.svg"
+      element: "0x1B35"
+    "0x1F85":
+      filename: "fingering.svg"
+      element: "0x1F85"
+    "0x1E64":
+      filename: "fingering.svg"
+      element: "0x1E64"
+    "0x0F72":
+      filename: "fingering.svg"
+      element: "0x0F72"
+    "0x16D6":
+      filename: "fingering.svg"
+      element: "0x16D6"
+    "0x1A88":
+      filename: "fingering.svg"
+      element: "0x1A88"
+    "0x1303":
+      filename: "fingering.svg"
+      element: "0x1303"
+    "0x1423":
+      filename: "fingering.svg"
+      element: "0x1423"
+    "0x2641":
+      filename: "fingering.svg"
+      element: "0x2641"
+    "0x2087":
+      filename: "fingering.svg"
+      element: "0x2087"
+    "0x1FE6":
+      filename: "fingering.svg"
+      element: "0x1FE6"
+    "0x1EAE":
+      filename: "fingering.svg"
+      element: "0x1EAE"
+    "0x2273":
+      filename: "fingering.svg"
+      element: "0x2273"
+    "0x2306":
+      filename: "fingering.svg"
+      element: "0x2306"
+    "0x16C9":
+      filename: "fingering.svg"
+      element: "0x16C9"
+    "0x1203":
+      filename: "fingering.svg"
+      element: "0x1203"
+    "0x1723":
+      filename: "fingering.svg"
+      element: "0x1723"
+    "0x1FA9":
+      filename: "fingering.svg"
+      element: "0x1FA9"
+    "0x10E3":
+      filename: "fingering.svg"
+      element: "0x10E3"
+    "0x1345":
+      filename: "fingering.svg"
+      element: "0x1345"
+    "0x212B":
+      filename: "fingering.svg"
+      element: "0x212B"
+    "0x1CE0":
+      filename: "fingering.svg"
+      element: "0x1CE0"
+    "0x1A6B":
+      filename: "fingering.svg"
+      element: "0x1A6B"
+    "0x15A3":
+      filename: "fingering.svg"
+      element: "0x15A3"
+    "0x1036":
+      filename: "fingering.svg"
+      element: "0x1036"
+    "0x162A":
+      filename: "fingering.svg"
+      element: "0x162A"
+    "0x116E":
+      filename: "fingering.svg"
+      element: "0x116E"
+    "0x1890":
+      filename: "fingering.svg"
+      element: "0x1890"
+    "0x1C97":
+      filename: "fingering.svg"
+      element: "0x1C97"
+    "0x1EA2":
+      filename: "fingering.svg"
+      element: "0x1EA2"
+    "0x1A43":
+      filename: "fingering.svg"
+      element: "0x1A43"
+    "0x0C64":
+      filename: "fingering.svg"
+      element: "0x0C64"
+    "0x183C":
+      filename: "fingering.svg"
+      element: "0x183C"
+    "0x144A":
+      filename: "fingering.svg"
+      element: "0x144A"
+    "0x21F4":
+      filename: "fingering.svg"
+      element: "0x21F4"
+    "0x0D44":
+      filename: "fingering.svg"
+      element: "0x0D44"
+    "0x12E5":
+      filename: "fingering.svg"
+      element: "0x12E5"
+    "0x1CF2":
+      filename: "fingering.svg"
+      element: "0x1CF2"
+    "0x2221":
+      filename: "fingering.svg"
+      element: "0x2221"
+    "0x29D4":
+      filename: "fingering.svg"
+      element: "0x29D4"
+    "0x180C":
+      filename: "fingering.svg"
+      element: "0x180C"
