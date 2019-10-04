@@ -24,7 +24,7 @@ MuseScore {
 				begin: 59, // B3 - For B foot flute
 				end: 105, // A7
 			},
-			base: '\uEC40\uEC41\uEC42\uEC43\uEC44',
+			base: '\uEC40\uEC41\uEC42', // You can add C# trill key (\uEC43) or open holes (\uEC44)
 			mapping: [
 				// 1st Octave (B3-B4)
 				'\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC54\uEC55\uEC53','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC55\uEC53','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC53','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4A\uEC52','\uEC46\uEC47\uEC48\uEC52','\uEC46\uEC47\uEC4D\uEC52','\uEC46\uEC47\uEC52',
@@ -44,7 +44,7 @@ MuseScore {
 			base: '\uEC40',
 			mapping: [
 				// 1st Octave (D5-B5)
-				'\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC54\uEC55\uEC53','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC55\uEC53','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC53','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4A\uEC52','\uEC46\uEC47\uEC48\uEC52','\uEC46\uEC47\uEC4D\uEC52','\uEC46\uEC47\uEC52',
+				'\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4A\uEC52','\uEC46\uEC47\uEC48\uEC52','\uEC46\uEC47\uEC4D\uEC52','\uEC46\uEC47\uEC52',
 				// 2nd Octave (C6-B6)
 				'\uEC47\uEC52','\uEC52','\uEC46\uEC48\uEC49\uEC4D\uEC4F\uEC51','\uEC46\uEC48\uEC49\uEC4D\uEC4F\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC4F\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4D\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC51\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC52','\uEC46\uEC47\uEC48\uEC49\uEC4A\uEC52','\uEC46\uEC47\uEC48\uEC52','\uEC46\uEC47\uEC4D\uEC52','\uEC46\uEC47\uEC52',
 				// 3nd Octave (C7-B7)
@@ -69,9 +69,9 @@ MuseScore {
 			],
 		},
 	];
-	property variant offsetY : 0;
+	property variant offsetY : 0.5;
 	property variant offsetX : 0.5;
-	property variant fontSize : 40;
+	property variant fontSize : 42;
 
 	function addFingering(pitch, instrument) {
 		var txt = null;
@@ -94,7 +94,7 @@ MuseScore {
 	}
 
 	function addElement(fingering, curScore) {
-		// TODO: Replaces this with Element.FINGERING when cursor.add bug has been fixed.
+		// TODO: Replace this with Element.FINGERING when cursor.add bug has been fixed.
 		var element = newElement(Element.STAFF_TEXT);
 
 		element.text = fingering;
@@ -133,13 +133,14 @@ MuseScore {
 				endTick = cursor.tick;
 			}
 			endStaff = cursor.staffIdx;
-			console.log('Selected staves ' + startStaff + ' - ' + endStaff + ' - ' + endTick);
+			console.log('Selected staves ' + startStaff + ' - ' + endStaff + ' - Position: ' + endTick);
 		}
 
 		// Loop over the selection
 		for (var staff = startStaff; staff <= endStaff; staff++) {
 			// Check for flute instrument parts
 			var instrument = curScore.parts[staff].instrumentId || '';
+			console.log('Staff ' + staff + ' instrument: ' + instrument);
 			if (instrument === 'wind.flutes.flute' || instrument === 'wind.flutes.flute.alto') {
 				mapping = fingerings[0];
 			} else if (instrument === 'wind.flutes.flute.piccolo') {
@@ -147,10 +148,9 @@ MuseScore {
 			} else if (instrument === 'wind.flutes.recorder') {
 				mapping = fingerings[2];
 			} else {
-				console.log('Skipped staff ' + staff + ' for instrument: ' + instrument);
+				console.log('Skipped staff ' + staff);
 				continue;
 			}
-			console.log('Staff ' + staff + ' instrument: ' + instrument);
 
 			if (curScore.hasLyrics) {
 				offsetY += 2   // try not to clash with any lyrics
@@ -174,11 +174,11 @@ MuseScore {
 							if (text != null) {
 								var el = addElement(text, curScore);
 								el.fontSize = fontSize * 0.75;
+								cursor.add(el);
 								el.offsetY = offsetY;
 								// There seems to be no way of knowing the exact horizontal position
 								// of a grace note, so we have to guess.
 								el.offsetX = offsetX - 2.5 * (graceChords.length - j);
-								cursor.add(el);
 							}
 						}
 					}
