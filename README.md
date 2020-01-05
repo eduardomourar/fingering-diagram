@@ -25,6 +25,8 @@ Sometimes the diagrams are placed too close together. In order to improve readab
 
 ### Preview
 
+Image exported from the [sample MuseScore file](./sample.mscx) included in this project.
+
 ![Screenshot](./screenshot.png)
 
 ## IMPORTANT

@@ -284,7 +284,7 @@ MuseScore {
 		var endTick;
 		var fullScore = false;
 		var elementType;
-		var supportFingeringElement = (mscoreVersion >= 30301);
+		var supportFingeringElement = false; // (mscoreVersion >= 30500);
 
 		if (supportFingeringElement) {
 			elementType = Element.FINGERING;
@@ -415,10 +415,10 @@ MuseScore {
 									notes[i].add(el);
 								} else {
 									cursor.add(el);
-									el.offsetY = offsetY;
 									// There seems to be no way of knowing the exact horizontal position
 									// of a grace note, so we have to guess.
 									el.offsetX = offsetX - 2.5 * (graceChords.length - j);
+									// el.offsetY = offsetY;
 								}
 								el.fontSize = fontSize * 0.7;
 								changeElement(el, text);
@@ -435,8 +435,8 @@ MuseScore {
 								notes[i].add(el);
 							} else {
 								cursor.add(el);
-								el.offsetY = offsetY;
 								el.offsetX = offsetX;
+								// el.offsetY = offsetY;
 							}
 							el.fontSize = fontSize;
 							// TODO: improve the placing of element for different scenarios
