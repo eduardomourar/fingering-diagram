@@ -1,0 +1,40 @@
+# OS X
+*.DS_STORE
+*__MACOSX
+.Spotlight-V100
+._.Trashes
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.AppleDouble
+.LSOverride
+Icon?
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+ehthumbs.db
+*.lnk
+
+# Editors
+*.bak
+*.vfbak
+*.~tt
++.idea/*
+vscode/
+
+# Shares
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
