@@ -28,6 +28,7 @@ MuseScore {
 				minPitch: 59, // B3 - For B foot flute
 				maxPitch: 105, // A7
 			},
+			transpose: 0,
 			base: '\uE000\uE001\uE002\uE003', // To add open holes (\uE004)
 			mapping: [
 				// 1st Octave (B3-B4)
@@ -136,6 +137,20 @@ MuseScore {
 			],
 			allKeysPressed: '\uE320\uE321\uE322\uE323\uE324\uE325\uE326\uE327\uE328\uE329\uE32A\uE32B',
 		},
+		{ // Tin Whistle in D
+			range: {
+				minPitch: 74, // D4 (written)
+				maxPitch: 98, // D6
+			},
+			base: '\uE3C0\uE3C3\uE3C6',
+			mapping: [
+				// 1st Octave (A3-B4)
+				'\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6','','','','','','','','','',
+				// 2nd Octave (C5-B5)
+				// 3nd Octave (C6-D6)
+			],
+			allKeysPressed: '\uE3C0\uE3C3\uE3C6\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE42E',
+		},,
 		{ // Trumpet
 			range: {
 				minPitch: 55,
@@ -247,14 +262,15 @@ MuseScore {
 
 	function addFingering(pitch, instrument) {
 		var txt = null;
-		if (pitch == null || pitch < instrument.range.minPitch) {
+		var transpose = instrument.transpose || 0;
+		if (pitch == null || pitch < instrument.range.minPitch - transpose) {
 			console.log('Skipped note as it was too low. Pitch: ' + pitch);
 			return txt;
-		} else if (pitch > instrument.range.maxPitch) {
+		} else if (pitch > instrument.range.maxPitch - transpose) {
 			console.log('Skipped note as it was too high. Pitch: ' + pitch);
 			return txt;
 		}
-		var index = pitch - instrument.range.minPitch;
+		var index = pitch + transpose - instrument.range.minPitch;
 		var mapping = instrument.mapping[index];
 		if (mapping == null) {
 			console.log('Note fingering not found. Index: ' + index);
@@ -327,8 +343,7 @@ MuseScore {
 			if (instrument === 'wind.flutes.flute' || instrument === 'wind.flutes.flute.alto') {
 				mapping = fingerings[0];
 				if (instrument === 'wind.flutes.flute.alto') {
-					mapping.range.minPitch += -5;
-					mapping.range.maxPitch += -5;
+					mapping.transpose = 5;
 				}
 			} else if (instrument === 'wind.flutes.flute.piccolo') {
 				mapping = fingerings[1];
@@ -337,21 +352,16 @@ MuseScore {
 				|| instrument === 'wind.reed.clarinet.alto' || instrument === 'wind.reed.clarinet.bass') {
 				mapping = fingerings[2];
 				if (instrument === 'wind.reed.clarinet' || instrument === 'wind.reed.clarinet.d') {
-					mapping.range.minPitch += -1;
-					mapping.range.maxPitch += -1;
+					mapping.transpose = 1;
 				} else if (instrument === 'wind.reed.clarinet.bflat') {
-					mapping.range.minPitch += -4;
-					mapping.range.maxPitch += -4;
+					mapping.transpose = 4;
 				} else if (instrument === 'wind.reed.clarinet.basset') {
-					mapping.range.minPitch += -1;
-					mapping.range.maxPitch += -1;
+					mapping.transpose = 1;
 					mapping.base += '\uE0A1';
 				} else if (instrument === 'wind.reed.clarinet.alto') {
-					mapping.range.minPitch += -6;
-					mapping.range.maxPitch += -6;
+					mapping.transpose = 6;
 				} else if (instrument === 'wind.reed.clarinet.bass') {
-					mapping.range.minPitch += -5;
-					mapping.range.maxPitch += -5;
+					mapping.transpose = 5;
 					mapping.base += '\uE0A1';
 				}
 			} else if (instrument === 'wind.reed.oboe') {
@@ -362,18 +372,37 @@ MuseScore {
 				|| instrument === 'wind.reed.saxophone.tenor' || instrument === 'wind.reed.saxophone.baritone') {
 				mapping = fingerings[5];
 				if (instrument === 'wind.reed.saxophone.alto') {
-					mapping.range.minPitch += -7;
-					mapping.range.maxPitch += -7;
+					mapping.transpose = 7;
 				} else if (instrument === 'wind.reed.saxophone.tenor') {
-					mapping.range.minPitch += -5;
-					mapping.range.maxPitch += -5;
+					mapping.transpose = 5;
 				} else if (instrument === 'wind.reed.saxophone.baritone') {
-					mapping.range.minPitch += -7;
-					mapping.range.maxPitch += -7;
+					mapping.transpose = 7;
 					mapping.base += '\uE281';
 				}
 			} else if (instrument === 'wind.flutes.recorder') {
 				mapping = fingerings[6];
+			} else if (instrument === 'wind.flutes.whistle.tin.d' || instrument === 'wind.flutes.whistle.tin.common'
+				|| instrument === 'wind.flutes.whistle.low.d' || instrument === 'wind.flutes.whistle.low.f' || instrument === 'wind.flutes.whistle.low.g'
+				|| instrument === 'wind.flutes.whistle.tin.bflat' || instrument === 'wind.flutes.whistle.tin'|| instrument === 'wind.flutes.whistle.tin.c'
+				|| instrument === 'wind.flutes.whistle.tin.eflat' || instrument === 'wind.flutes.whistle.tin.f'|| instrument === 'wind.flutes.whistle.tin.g') {
+				mapping = fingerings[7];
+				if (instrument === 'wind.flutes.whistle.low.d') {
+					mapping.transpose = 12;
+				} else if (instrument === 'wind.flutes.whistle.low.f') {
+					mapping.transpose = 9;
+				} else if (instrument === 'wind.flutes.whistle.low.g') {
+					mapping.transpose = 7;
+				} else if (instrument === 'wind.flutes.whistle.tin.bflat') {
+					mapping.transpose = 4;
+				} else if (instrument === 'wind.flutes.whistle.tin' || instrument === 'wind.flutes.whistle.tin.c') {
+					mapping.transpose = 2;
+				} else if (instrument === 'wind.flutes.whistle.tin.eflat') {
+					mapping.transpose = -1;
+				} else if (instrument === 'wind.flutes.whistle.tin.f') {
+					mapping.transpose = -3;
+				} else if (instrument === 'wind.flutes.whistle.tin.g') {
+					mapping.transpose = -5;
+				}
 /* 				
 			} else if (instrument === 'brass.trumpet') {						
 			} else if (instrument === 'brass.trombone' || instrument === 'brass.trombone.alto' 
