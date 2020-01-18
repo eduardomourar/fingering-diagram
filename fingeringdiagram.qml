@@ -140,17 +140,19 @@ MuseScore {
 		{ // Tin Whistle in D
 			range: {
 				minPitch: 74, // D4 (written)
-				maxPitch: 98, // D6
+				maxPitch: 104, // G#6
 			},
 			base: '\uE3C0\uE3C3\uE3C6',
 			mapping: [
-				// 1st Octave (A3-B4)
-				'\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6','','','','','','','','','',
+				// 1st Octave (D4-B4)
+				'\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6','\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3E6','\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5','\uE3CF\uE3D1\uE3D2\uE3D3\uE3E5','\uE3CF\uE3D1\uE3D2\uE3D3','\uE3CF\uE3D1\uE3D2','\uE3CF\uE3D1\uE3E2','\uE3CF\uE3D1','\uE3CF\uE3E1','\uE3CF',
 				// 2nd Octave (C5-B5)
-				// 3nd Octave (C6-D6)
+				'\uE3D1\uE3D2','','\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE43D','\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3E6\uE43D','\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE43D','\uE3CF\uE3D1\uE3D2\uE3D3\uE3E5\uE43D','\uE3CF\uE3D1\uE3D2\uE3D3\uE43D','\uE3CF\uE3D1\uE3D2\uE43D','\uE3CF\uE3D1\uE3E2\uE43D','\uE3CF\uE3D1\uE43D','\uE3CF\uE3E1\uE43D','\uE3CF\uE43D',
+				// 3nd Octave (C6-G#6)
+				'\uE3DF\uE43D','\uE3D1\uE3D2\uE3D3\uE43D','\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE43E','\uE3CF\uE3D1\uE3D3\uE3D6\uE43E','\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE43E','\uE3CF\uE3D1\uE3D2\uE3D3\uE3E5\uE3D6\uE43E','\uE3CF\uE3D1\uE3D2\uE3D3\uE3D6\uE43E','\uE3CF\uE3D1\uE3D2\uE3D6\uE43E','\uE3CF\uE3D1\uE3E2\uE3D6\uE43E',
 			],
-			allKeysPressed: '\uE3C0\uE3C3\uE3C6\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE42E',
-		},,
+			allKeysPressed: '\uE3C0\uE3C3\uE3C6\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE43E',
+		},
 		{ // Trumpet
 			range: {
 				minPitch: 55,
@@ -444,9 +446,16 @@ MuseScore {
 									notes[i].add(el);
 								} else {
 									cursor.add(el);
+									var noteType = notes[i].noteType;
+									var graceOffset = -2.5;
+									if (noteType == NoteType.GRACE8_AFTER || noteType == NoteType.GRACE16_AFTER ||
+										noteType == NoteType.GRACE32_AFTER) {
+										graceOffset = -1 * graceOffset;
+									}
+
 									// There seems to be no way of knowing the exact horizontal position
 									// of a grace note, so we have to guess.
-									el.offsetX = offsetX - 2.5 * (graceChords.length - j);
+									el.offsetX = offsetX + graceOffset * (graceChords.length - j);
 									// el.offsetY = offsetY;
 								}
 								el.fontSize = fontSize * 0.7;

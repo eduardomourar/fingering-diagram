@@ -1967,6 +1967,7 @@
           <gateTime>100</gateTime>
           </Articulation>
         <Channel>
+          <controller ctrl="0" value="0"/>
           <controller ctrl="32" value="17"/>
           <program value="78"/>
           <synti>Fluid</synti>
@@ -9215,9 +9216,6 @@
     <Staff id="8">
       <Measure>
         <voice>
-          <KeySig>
-            <accidental>0</accidental>
-            </KeySig>
           <TimeSig>
             <sigN>4</sigN>
             <sigD>4</sigD>
@@ -9367,6 +9365,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9381,6 +9387,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9394,6 +9408,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9408,6 +9430,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9418,6 +9448,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9435,6 +9473,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9445,6 +9491,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9462,6 +9516,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9472,6 +9534,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9489,6 +9559,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9499,6 +9577,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9513,6 +9599,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9526,6 +9620,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9540,6 +9642,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9553,6 +9663,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9567,6 +9685,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9577,6 +9703,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9594,6 +9728,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9604,6 +9746,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9621,6 +9771,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9631,6 +9789,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9648,6 +9814,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9658,6 +9832,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9672,6 +9854,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9685,6 +9875,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9699,6 +9897,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9712,6 +9918,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9726,6 +9940,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9736,6 +9958,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9753,6 +9983,14 @@
         </Measure>
       <Measure>
         <voice>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
@@ -9763,6 +10001,14 @@
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
+          <StaffText>
+            <placement>below</placement>
+            <family>Fiati</family>
+            <size>42</size>
+            <align>center,top</align>
+            <offset x="0.5" y="-2"/>
+            <text></text>
+            </StaffText>
           <Chord>
             <durationType>quarter</durationType>
             <Note>
