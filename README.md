@@ -3,11 +3,12 @@
 Fingering Diagram Plugin for MuseScore 3.x is a tool to create scores with instrument fingering diagrams.
 
 ### Introduction
-This is a plugin that automatically adds fingering diagram/chart for different musical instruments (initially for windwood) to the score. Note that if the staff instrument is not a wind instrument (`wind.*`) then no fingering will be applied. Those are the instruments with mapping created:
+This is a plugin that automatically adds fingering diagram/chart for different musical instruments (initially for windwood) to the score. Note that if the staff instrument is not a wind instrument (`wind.*`) then no fingering will be applied. Those are the instruments currently supported:
 
 * Flute (wind.flutes.flute)
 * Piccolo (wind.flutes.flute.piccolo)
 * Soprano Recorder (wind.flutes.recorder)
+* Low and Tin Whistles (wind.flutes.whistle)
 
 ### Installation
 * If using MuseScore version 3 then download the [plugin](https://github.com/eduardomourar/fingering-diagram/archive/master.zip) and unzip it.
