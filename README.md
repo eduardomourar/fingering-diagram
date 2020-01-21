@@ -29,7 +29,7 @@ Sometimes the diagrams are placed too close together. In order to improve readab
 
 Image exported from the [sample MuseScore file](./sample.mscx) included in this project.
 
-<img src="screenshot.png" alt="Screenshot" width="600">
+<img src="screenshot.png" alt="Screenshot" width="700">
 
 ## IMPORTANT
 NO WARRANTY
