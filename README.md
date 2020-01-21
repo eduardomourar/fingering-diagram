@@ -9,6 +9,7 @@ This is a plugin that automatically adds fingering diagram/chart for different m
 * Piccolo (wind.flutes.flute.piccolo)
 * Soprano Recorder (wind.flutes.recorder)
 * Low and Tin Whistles (wind.flutes.whistle)
+* Xaphoon (wind.reed.xaphoon)
 
 ### Installation
 * If using MuseScore version 3 then download the [plugin](https://github.com/eduardomourar/fingering-diagram/archive/master.zip) and unzip it.
@@ -28,7 +29,7 @@ Sometimes the diagrams are placed too close together. In order to improve readab
 
 Image exported from the [sample MuseScore file](./sample.mscx) included in this project.
 
-![Screenshot](./screenshot.png)
+<img src="screenshot.png" alt="Screenshot" width="600">
 
 ## IMPORTANT
 NO WARRANTY

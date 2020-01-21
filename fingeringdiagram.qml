@@ -6,7 +6,7 @@
 //  Requires Fiati music font that can found here:
 //     https://github.com/eduardomourar/fiati
 //
-//  Copyright (c) 2020 Eduardo Rodrigues
+//  Copyright (c) 2019-2020 Eduardo Rodrigues
 //=============================================================================
 import QtQuick 2.9
 import QtQuick.Dialogs 1.1
@@ -220,6 +220,28 @@ MuseScore {
 					this.transpose = -3;
 				} else if (instrument === 'wind.flutes.whistle.tin.g') {
 					this.transpose = -5;
+				}
+			} else if (instrument === 'wind.reed.xaphoon'
+				|| instrument === 'wind.reed.xaphoon.g' || instrument === 'wind.reed.xaphoon.bflat' || instrument === 'wind.reed.xaphoon.d') {
+				this.instrument = 'xaphoon'; // Xaphoon in C
+				this.range = {
+					minPitch: 59, // B3 (written)
+					maxPitch: 84, // C6
+				};
+				this.base = '\uE3C0\uE3C1\uE3C2\uE3C3\uE3C6\uE3C7';
+				this.mapping = [
+					// 1st Octave (B3-B4)
+					'\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE3D7','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE3D7','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE3E7','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D7','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D5\uE3D6\uE3D7','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE427','\uE3CD\uE3CE\uE3CF\uE3D1\uE3D3\uE3D5\uE3D6','\uE3CD\uE3CE\uE3CF\uE3D1\uE427','\uE3CD\uE3CE\uE3CF\uE427','\uE3CD\uE3CE\uE3D1\uE3D2\uE3D3\uE427',
+					// 2nd Octave (C5-C6)
+					'\uE3CD\uE3CE\uE427','\uE3CD\uE3CF\uE3D1\uE3D2\uE427','\uE3CD\uE427','\uE3CE\uE3CF\uE3D1\uE3D2\uE427','\uE3CE\uE427','\uE427','\uE427','\uE43F\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE3D7','\uE43F\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE3E7','\uE43F\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6','\uE43F\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D7','\uE43F\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3','\uE43F\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE427',
+				];
+				this.allKeysPressed = '\uE3C0\uE3C1\uE3C2\uE3C3\uE3C6\uE3C7\uE43F\uE3CD\uE3CE\uE3CF\uE3D1\uE3D2\uE3D3\uE3D5\uE3D6\uE3D7';
+				if (instrument === 'wind.reed.xaphoon.g') {
+					this.transpose = 5;
+				} else if (instrument === 'wind.reed.xaphoon.bflat') {
+					this.transpose = 2;
+				} else if (instrument === 'wind.reed.xaphoon.d') {
+					this.transpose = -2;
 				}
 			} else if (instrument === 'brass.trumpet') {	
 				// this.instrument = 'trumpet'; // Trumpet
