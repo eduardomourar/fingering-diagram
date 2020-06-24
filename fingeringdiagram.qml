@@ -37,7 +37,7 @@ MuseScore {
 		*/
 		this._populate = function(instrument) {
 			if (instrument === 'wind.flutes.flute' || instrument === 'wind.flutes.flute.alto') {
-				this.instrument = 'flute'; // Flute
+				this.instrument = 'flute'; // Default: Flute
 				this.range = {
 					minPitch: 59, // B3 - For B foot flute
 					maxPitch: 105, // A7
@@ -58,7 +58,7 @@ MuseScore {
 					this.transpose = 5;
 				}
 			} else if (instrument === 'wind.flutes.flute.piccolo') {
-				this.instrument = 'piccolo'; // Piccolo
+				this.instrument = 'piccolo'; // Default: Piccolo
 				this.range = {
 					minPitch: 74, // D4 (written)
 					maxPitch: 108, // C7
@@ -78,7 +78,7 @@ MuseScore {
 			} else if (instrument === 'wind.reed.clarinet' || instrument === 'wind.reed.clarinet.eflat' || instrument === 'wind.reed.clarinet.d'
 				|| instrument === 'wind.reed.clarinet.bflat' || instrument === 'wind.reed.clarinet.basset'
 				|| instrument === 'wind.reed.clarinet.alto' || instrument === 'wind.reed.clarinet.bass') {
-				this.instrument = 'clarinet'; // Sopranino Clarinet in Eb
+				this.instrument = 'clarinet'; // Default: Sopranino Clarinet in Eb
 				this.range = {
 					minPitch: 54, // D#3 (written)
 					maxPitch: 108, // A7
@@ -109,7 +109,7 @@ MuseScore {
 					this.base += '\uE0A1';
 				}
 			} else if (instrument === 'wind.reed.oboe') {
-				this.instrument = 'oboe'; // Oboe
+				this.instrument = 'oboe'; // Default: Oboe
 				this.range = {
 					minPitch: 58, // A#3
 					maxPitch: 97, // C#7
@@ -125,7 +125,7 @@ MuseScore {
 				];
 				this.allKeysPressed = '\uE140\uE141\uE142\uE143\uE144\uE145\uE146\uE147\uE148\uE149\uE14A\uE14B\uE14C\uE14D\uE14E\uE14F\uE150\uE151\uE152\uE153\uE154\uE155\uE156\uE157\uE158\uE159';
 			} else if (instrument === 'wind.reed.bassoon') {
-				this.instrument = 'bassoon';// Bassoon
+				this.instrument = 'bassoon';// Default: Bassoon
 				this.range = {
 					minPitch: 34, // A#1
 					maxPitch: 77, // F5
@@ -144,7 +144,7 @@ MuseScore {
 				this.allKeysPressed = '\uE1E0\uE1E1\uE1F3\uE1F4\uE1F5\uE1F6\uE1F7\uE1F8\uE1F9\uE1FA\uE1FB\uE1E2\uE1E3\uE1E4\uE1E5\uE1E6\uE1E7\uE1E8\uE1E9\uE1FC\uE1FD\uE1FE\uE1FF\uE1EA\uE1EB\uE1EC\uE1ED\uE1EE\uE1EF\uE1F0\uE1F1\uE1F2';
 			} else if (instrument === 'wind.reed.saxophone' || instrument === 'wind.reed.saxophone.soprano' || instrument === 'wind.reed.saxophone.alto' 
 				|| instrument === 'wind.reed.saxophone.tenor' || instrument === 'wind.reed.saxophone.baritone') {
-				this.instrument = 'saxophone'; // Soprano Saxophone in Bb
+				this.instrument = 'saxophone'; // Default: Soprano Saxophone in Bb
 				this.range = {
 					minPitch: 55, // A3 (written)
 					maxPitch: 108, // D8
@@ -169,8 +169,9 @@ MuseScore {
 					this.transpose = 7;
 					this.base += '\uE281';
 				}
-			} else if (instrument === 'wind.flutes.recorder') {
-				this.instrument = 'recorder'; // Soprano Recorder (Baroque/English)
+			} else if (instrument === 'wind.flutes.recorder' || instrument === 'wind.flutes.recorder.soprano'
+				|| instrument === 'wind.flutes.recorder.alto') {
+				this.instrument = 'recorder'; // Default: Soprano Recorder (Baroque/English)
 				this.range = {
 					minPitch: 72, // C4 (written)
 					maxPitch: 105, // A6
@@ -185,11 +186,14 @@ MuseScore {
 					'\uE32C\uE322\uE325\uE326','\uE32C\uE322\uE324\uE325\uE327\uE328\uE32B','\uE32C\uE322\uE324\uE325\uE327\uE328','\uE32C\uE323\uE324\uE326\uE327\uE328','\uE32C\uE323\uE324\uE326\uE327\uE328\uE32B','\uE32C\uE322\uE323\uE325\uE326\uE32B','\uE32C\uE322\uE323\uE325\uE326','\uE32C\uE322\uE325','\uE32C\uE322\uE324\uE327\uE328\uE329\uE32A\uE32B','\uE32C\uE322\uE324\uE326\uE327\uE328',
 				];
 				this.allKeysPressed = '\uE320\uE321\uE322\uE323\uE324\uE325\uE326\uE327\uE328\uE329\uE32A\uE32B';
+				if (instrument === 'wind.flutes.recorder.alto') {
+					this.transpose = 7;
+				}
 			} else if (instrument === 'wind.flutes.whistle.tin.d' || instrument === 'wind.flutes.whistle.tin.common'
 				|| instrument === 'wind.flutes.whistle.low.d' || instrument === 'wind.flutes.whistle.low.f' || instrument === 'wind.flutes.whistle.low.g'
 				|| instrument === 'wind.flutes.whistle.tin.bflat' || instrument === 'wind.flutes.whistle.tin'|| instrument === 'wind.flutes.whistle.tin.c'
 				|| instrument === 'wind.flutes.whistle.tin.eflat' || instrument === 'wind.flutes.whistle.tin.f'|| instrument === 'wind.flutes.whistle.tin.g') {
-				this.instrument = 'whistle'; // Tin Whistle in D
+				this.instrument = 'whistle'; // Default: Tin Whistle
 				this.range = {
 					minPitch: 74, // D4 (written)
 					maxPitch: 104, // G#6
@@ -223,7 +227,7 @@ MuseScore {
 				}
 			} else if (instrument === 'wind.reed.xaphoon'
 				|| instrument === 'wind.reed.xaphoon.g' || instrument === 'wind.reed.xaphoon.bflat' || instrument === 'wind.reed.xaphoon.d') {
-				this.instrument = 'xaphoon'; // Xaphoon in C
+				this.instrument = 'xaphoon'; // Default: Xaphoon in C
 				this.range = {
 					minPitch: 59, // B3 (written)
 					maxPitch: 84, // C6
@@ -244,14 +248,14 @@ MuseScore {
 					this.transpose = -2;
 				}
 			} else if (instrument === 'brass.trumpet') {	
-				// this.instrument = 'trumpet'; // Trumpet
+				// this.instrument = 'trumpet'; // Default: Trumpet
 				this.range = {
 					minPitch: 55,
 					maxPitch: 82,
 				};
 			} else if (instrument === 'brass.trombone' || instrument === 'brass.trombone.alto' 
 				|| instrument === 'brass.trombone.tenor' || instrument === 'brass.trombone.bass') {
-				// this.instrument = 'trombone'; // Trombone
+				// this.instrument = 'trombone'; // Default: Trombone
 				this.range = {
 					minPitch: 40,
 					maxPitch: 72,
@@ -260,13 +264,13 @@ MuseScore {
 					this.transpose = 6;
 				}
 			} else if (instrument === 'brass.french-horn') {
-				// this.instrument = 'french-horn'; // French Horn
+				// this.instrument = 'french-horn'; // Default: French Horn
 				this.range = {
 					minPitch: 34,
 					maxPitch: 77,
 				};
 			} else if (instrument === 'brass.tuba') {
-				// this.instrument = 'tuba'; // Tuba
+				// this.instrument = 'tuba'; // Default: Tuba
 				this.range = {
 					minPitch: 28,
 					maxPitch: 58,
