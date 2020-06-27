@@ -14,7 +14,7 @@ import MuseScore 3.0
 
 MuseScore {
 	menuPath: 'Plugins.Fingering Diagram'
-	version: '1.2'
+	version: '1.3'
 	description: 'Add instrument fingering diagrams to the score'
 	requiresScore: true
 
