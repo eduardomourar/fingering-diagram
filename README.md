@@ -7,7 +7,7 @@ This is a plugin that automatically adds fingering diagram/chart for different m
 
 * Flute (wind.flutes.flute)
 * Piccolo (wind.flutes.flute.piccolo)
-* Soprano Recorder (wind.flutes.recorder)
+* Soprano and Alto Recorder (wind.flutes.recorder)
 * Saxophone (wind.reed.saxophone)
 * Low and Tin Whistles (wind.flutes.whistle)
 * Xaphoon (wind.reed.xaphoon)
