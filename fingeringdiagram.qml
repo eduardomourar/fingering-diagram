@@ -164,9 +164,9 @@ MuseScore {
 				if (instrument === 'wind.reed.saxophone.alto') {
 					this.transpose = 7;
 				} else if (instrument === 'wind.reed.saxophone.tenor') {
-					this.transpose = 5;
+					this.transpose = 12;
 				} else if (instrument === 'wind.reed.saxophone.baritone') {
-					this.transpose = 7;
+					this.transpose = 19;
 					this.base += '\uE281';
 				}
 			} else if (instrument === 'wind.flutes.recorder' || instrument === 'wind.flutes.recorder.soprano'
