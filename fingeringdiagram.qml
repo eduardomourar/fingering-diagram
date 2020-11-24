@@ -281,55 +281,8 @@ MuseScore {
 		this._getInstrumentId = function() {
 			var part = this.part;
 			var instrumentId = part.instrumentId;
-			if (part && !instrumentId && part.midiProgram) {
-				switch (part.midiProgram) {
-					case 56:
-					case 59:
-						instrumentId = 'brass.trumpet';
-						break;
-					case 57:
-						instrumentId = 'brass.trombone';
-						break;
-					case 58:
-						instrumentId = 'brass.tuba';
-						break;
-					case 60:
-						instrumentId = 'brass.french-horn';
-						break;
-					case 64:
-						instrumentId = 'wind.reed.saxophone.soprano';
-						break;
-					case 65:
-						instrumentId = 'wind.reed.saxophone.alto';
-						break;
-					case 66:
-						instrumentId = 'wind.reed.saxophone.tenor';
-						break;
-					case 67:
-						instrumentId = 'wind.reed.saxophone.baritone';
-						break;
-					case 68:
-						instrumentId = 'wind.reed.oboe';
-						break;
-					case 69:
-						instrumentId = 'wind.reed.english-horn';
-						break;
-					case 70:
-						instrumentId = 'wind.reed.bassoon';
-						break;
-					case 71:
-						instrumentId = 'wind.reed.clarinet';
-						break;
-					case 72:
-						instrumentId = 'wind.flutes.flute.piccolo';
-						break;
-					case 73:
-						instrumentId = 'wind.flutes.flute';
-						break;
-					case 74:
-						instrumentId = 'wind.flutes.recorder';
-						break;
-				}
+			if (part && !instrumentId && part.midiProgram && midiMapping.has(midiMapping)) {
+				instrumentId = midiMapping[part.midiProgram];
 			}
 			if (instrumentId) {
 				this._populate(instrumentId);
@@ -359,6 +312,24 @@ MuseScore {
 		this.instrumentId = this._getInstrumentId();
 	}
 
+	property variant midiMapping : {
+		56: 'brass.trumpet',
+		59: 'brass.trumpet',
+		57: 'brass.trombone',
+		58: 'brass.tuba',
+		60: 'brass.french-horn',
+		64: 'wind.reed.saxophone.soprano',
+		65: 'wind.reed.saxophone.alto',
+		66: 'wind.reed.saxophone.tenor',
+		67: 'wind.reed.saxophone.baritone',
+		68: 'wind.reed.oboe',
+		69: 'wind.reed.english-horn',
+		70: 'wind.reed.bassoon',
+		71: 'wind.reed.clarinet',
+		72: 'wind.flutes.flute.piccolo',
+		73: 'wind.flutes.flute',
+		74: 'wind.flutes.recorder'
+		};
 	property variant offsetY : 4; // When fingering element not available
 	property variant offsetX : 0.5; // When fingering element not available
 	property variant fontSize : 42;
@@ -390,6 +361,17 @@ MuseScore {
 		}
 	}
 
+	MessageDialog {
+		id: nothingProcessed
+		icon: StandardIcon.Warning
+		standardButtons: StandardButton.Ok
+		title: 'No valid score found'
+		text: 'The instruments in this project are not supported or not yet fully implemented. Nothing was changed.'
+		onAccepted: {
+			Qt.quit()
+		}
+	}
+
 	function changeElement(element, fingering) {
 		element.text = fingering;
 		element.fontFace = 'Fiati';
@@ -411,6 +393,8 @@ MuseScore {
 		var fullScore = false;
 		var elementType;
 		var supportFingeringElement = false; // (mscoreVersion >= 30500);
+		var staffChanged = 0;
+		var staffFound = [];
 
 		if (supportFingeringElement) {
 			elementType = Element.FINGERING;
@@ -443,8 +427,10 @@ MuseScore {
 			// Check for supported instrument parts
 			var part = curScore.parts[staff];
 			fingering = new fingeringClass(part);
+			staffFound.push(part.longName);
 			if (fingering && fingering.instrument) {
 				console.log('Staff ' + staff + ' instrument: ' + fingering.instrumentId);
+				staffChanged += 1;
 			} else {
 				console.log('Skipped staff ' + staff);
 				continue;
@@ -514,6 +500,13 @@ MuseScore {
 				cursor.next();
 			} // end while segment
 		} // end for staff
+		if (staffChanged == 0) {
+			nothingProcessed.detailedText = "Found following instruments:\n"+staffFound.join('\n')+"\n\nSupported are only:\n";
+			for (var i in midiMapping) {
+				nothingProcessed.detailedText += midiMapping[i] + "\n";
+			}
+			nothingProcessed.open();
+		}
 	}
 
 	onRun: {
