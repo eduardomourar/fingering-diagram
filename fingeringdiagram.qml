@@ -270,11 +270,32 @@ MuseScore {
 					maxPitch: 77,
 				};
 			} else if (instrument === 'brass.tuba') {
-				// this.instrument = 'tuba'; // Default: Tuba
+				this.instrument = 'tuba'; // Default: Tuba
 				this.range = {
-					minPitch: 28,
-					maxPitch: 58,
+					minPitch: 24,
+					maxPitch: 65,
 				};
+				this.base = '\uE3C0';
+				var f = { 0: '', 1: '\uE3D1', 2: '\uE3D2', 3: '\uE3D3', 4: '\uE3D5'};
+
+				f[12]   = f[1]+f[2];
+				f[23]   = f[2]+f[3];
+				f[24]   = f[2]+f[4];
+				f[124]  = f[1]+f[2]+f[4];
+				f[134]  = f[1]+f[3]+f[4];
+				f[234]  = f[2]+f[3]+f[4];
+				f[1234] = f[1]+f[2]+f[3]+f[4];
+
+				this.mapping = [
+					// 1st Octave (C1-B1)
+					f[1234], f[134], f[234], f[124], f[24], f[4], f[23], f[12], f[1], f[2], f[0], f[24], 
+					// 2nd Octave (C2-B2)
+					f[4], f[23], f[12], f[1], f[2], f[0], f[23], f[12], f[1], f[2], f[0], f[12], 
+					// 3rd Octave (C3-B3)
+					f[4], f[23], f[12], f[1], f[2], f[0], f[23], f[12], f[1], f[2], f[0], f[12], 
+					// 4th Octave (C4-F4)
+					f[4], f[23], f[12], f[1], f[2], f[0]
+				];
 			}
 		}
 		
