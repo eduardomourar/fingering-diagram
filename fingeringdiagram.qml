@@ -22,7 +22,7 @@ MuseScore {
 	* Class used to create a new musical part fingering containing its type, range,
 	* mapping, transposition, etc.
 	*/
-	function fingeringClass(part) {
+	function FingeringClass(part) {
 		this.part = part || {};
 		this.instrument = null;
 		this.range = {};
@@ -86,19 +86,121 @@ MuseScore {
 				this.base = '\uE0A0';
 				this.mapping = [
 					// 1st Octave (D#3-B4)
-					'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5\uE0BA','\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5','','','','','','','','\uE0A3\uE0A6\uE0A7\uE0A9','','','','','','','','','','','',
+					'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5\uE0BA',
+					[
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5\uE0B9',  // E 'LR'
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5',        // E 'L'
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B8'         // E 'R'
+					],
+					[
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B9',    // F 'R'
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AB\uE0B2\uE0B3\uE0B5'     // F 'L'
+					],
+					[
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AC\uE0B2\uE0B3\uE0B5\uE0B9', // F# LR
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AC\uE0B2\uE0B3\uE0B5',       // F# L
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B6'        // F# R
+					],
+					'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5', '\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B7', '\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3', // A
+					'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2', // Bb
+					[
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B3', // B
+						'\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B4'
+					],
+					'\uE0A3\uE0A6\uE0A7\uE0A9',       // C
+					'\uE0A3\uE0A6\uE0A7\uE0A9\uE0AA',  // C#
+					'\uE0A3\uE0A6\uE0A7', // D
+					[
+						'\uE0A3\uE0A6\uE0A7\uE0B1', // Eb
+						'\uE0A3\uE0A6\uE0A7\uE0A8', // Eb
+						'\uE0A3\uE0A6\uE0B2'        // Eb
+					],
+					'\uE0A3\uE0A6',  // E
+					'\uE0A3',  // F
+					[
+						'\uE0A6',                 // F#
+						'\uE0A3\uE0B0\uE0B1'
+					],
+					'',   // G
+					'\uE0A5', // G#
+					'\uE0A4',
+					'\uE0A2\uE0A4',
+					[     // B
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5\uE0B9', // LR 
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0AD\uE0B2\uE0B3\uE0B5',       // L
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B8'        // R
+					],
 					// 2nd Octave (C5-B5)
-					'','','','','','','','','','','','',
+					[     // C
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B9',      // R
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0AB\uE0B2\uE0B3\uE0B5'       // L
+					],
+					[   // C#
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0AC\uE0B2\uE0B3\uE0B5',         // L
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0AC\uE0B2\uE0B3\uE0B5\uE0B9',   // LR
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B6'          // R
+					],
+					'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5',
+					'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3\uE0B5\uE0B7', // D#
+					'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B3',
+					'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2',
+					[     // F#
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B3',
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0B2\uE0B4'
+					],
+					'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9', // G
+					'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A9\uE0AA', // G# 
+					'\uE0A2\uE0A3\uE0A6\uE0A7',
+					[  // A#
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0B1',
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0A8',
+						'\uE0A2\uE0A3\uE0A6\uE0B2'
+					],
+					'\uE0A2\uE0A3\uE0A6',
 					// 3nd Octave (C6-B6)
-					'','','','','','','','','','','','',
-					// 4th Octave (C7-A7)
-					'','','','','','','','','','','','',
+					'\uE0A2\uE0A3',
+					'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B2\uE0B3',
+					'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B2\uE0B7', // D
+					[  // D#
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B2\uE0B4\uE0B7',
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B3\uE0B7'
+					],
+					'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B7',  // E
+					'\uE0A2\uE0A3\uE0A7\uE0A9\uE0AA\uE0B7', // F
+					[
+						'\uE0A2\uE0A3\uE0A7\uE0B7',  // F#
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0B2\uE0B3\uE0B5\uE0B7'
+					],
+					[
+						'\uE0A2\uE0A3\uE0A7\uE0B2\uE0B3\uE0B7',  // G
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B2\uE0B3\uE0B7'
+					],
+					[
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0AC\uE0B2\uE0B5',
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B2\uE0B5\uE0B6'
+					],
+					[
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0B9',
+						'\uE0A2\uE0A3\uE0A7\uE0A9\uE0AB'
+					],
+					[
+						'\uE0A2\uE0A3\uE0A5\uE0A7\uE0A9\uE0AA\uE0B7',
+						'\uE0A2\uE0A3\uE0A5\uE0A7\uE0A9\uE0B6'
+					],
+					[
+						'\uE0A2\uE0A3\uE0A5\uE0A6\uE0A7\uE0B2\uE0B3',
+						'\uE0A2\uE0A3\uE0A6\uE0A7\uE0B2\uE0B3\uE0B6'
+					],
+					[
+						'\uE0A2\uE0A3\uE0A5\uE0A6\uE0B2\uE0B6',
+						'\uE0A2\uE0A3\uE0A5\uE0A6\uE0AC\uE0B2'
+					],
 				];
 				this.allKeysPressed = '\uE0A0\uE0A2\uE0A3\uE0A4\uE0A5\uE0A6\uE0A7\uE0A8\uE0A9\uE0AA\uE0AB\uE0AC\uE0AD\uE0AE\uE0AF\uE0B0\uE0B1\uE0B2\uE0B3\uE0B4\uE0B5\uE0B6\uE0B7\uE0B8\uE0B9\uE0BA';
 				if (instrument === 'wind.reed.clarinet' || instrument === 'wind.reed.clarinet.d') {
 					this.transpose = 1;
 				} else if (instrument === 'wind.reed.clarinet.bflat') {
-					this.transpose = 4;
+					this.transpose = 5;
 				} else if (instrument === 'wind.reed.clarinet.basset') {
 					this.transpose = 1;
 					this.base += '\uE0A1';
@@ -325,6 +427,9 @@ MuseScore {
 			if (mapping == null) {
 				console.log('Note fingering not found. Index: ' + index);
 				return txt;
+			} else if (Array.isArray(mapping)) {
+				// In case alternate fingering, we will consider the first one for now
+				mapping = mapping[0];
 			}
 			txt = this.base + mapping;
 			return txt;
@@ -447,8 +552,8 @@ MuseScore {
 		for (var staff = startStaff; staff <= endStaff; staff++) {
 			// Check for supported instrument parts
 			var part = curScore.parts[staff];
-			fingering = new fingeringClass(part);
-			staffFound.push(part.longName);
+			fingering = new FingeringClass(part);
+			staffFound.push(part.longName + ' (' + part.instrumentId + ')');
 			if (fingering && fingering.instrument) {
 				console.log('Staff ' + staff + ' instrument: ' + fingering.instrumentId);
 				staffChanged += 1;
