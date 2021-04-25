@@ -22,8 +22,8 @@ This is a plugin that automatically adds fingering diagram/chart for different m
 * Open MuseScore and navigate to ['Plugins' -> 'Plugin Manager'](https://musescore.org/en/handbook/3/plugins#enable-disable-plugins)
 to enable the plugin. Tick the box against 'fingeringdiagram' and apply with 'OK'.
 
-* This plugin relies on **Fiati** font being installed, which can be downloaded here: https://github.com/eduardomourar/fiati/releases
-For windows 10 users: Make sure to install the font for "All Users" or MuseScore (and thus this plugin) won't have access to it.
+* This plugin relies on **Fiati** font being installed, which can be downloaded here: https://github.com/eduardomourar/fiati/releases.
+For Windows 10 users: Make sure to install the font for "All Users" or MuseScore (and thus this plugin) won't have access to it.
 
 ## Known issues
 
