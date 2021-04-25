@@ -19,10 +19,10 @@ MuseScore {
 	requiresScore: true
 
 	/**
-	* Class used to create a new musical part fingering containing its type, range,
+	* Class constructor used to create a new musical part fingering containing its type, range,
 	* mapping, transposition, etc.
 	*/
-	function FingeringClass(part) {
+	function fingeringConstructor(part) {
 		this.part = part || {};
 		this.instrument = null;
 		this.range = {};
@@ -552,7 +552,7 @@ MuseScore {
 		for (var staff = startStaff; staff <= endStaff; staff++) {
 			// Check for supported instrument parts
 			var part = curScore.parts[staff];
-			fingering = new FingeringClass(part);
+			fingering = new fingeringConstructor(part);
 			staffFound.push(part.longName + ' (' + part.instrumentId + ')');
 			if (fingering && fingering.instrument) {
 				console.log('Staff ' + staff + ' instrument: ' + fingering.instrumentId);
