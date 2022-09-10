@@ -6,7 +6,7 @@
 //  Requires Fiati music font that can found here:
 //     https://github.com/eduardomourar/fiati
 //
-//  Copyright (c) 2019-2020 Eduardo Rodrigues
+//  Copyright (c) 2019-2022 Eduardo Rodrigues
 //=============================================================================
 import QtQuick 2.9
 import QtQuick.Dialogs 1.1
@@ -14,7 +14,7 @@ import MuseScore 3.0
 
 MuseScore {
 	menuPath: 'Plugins.Fingering Diagram'
-	version: '1.6'
+	version: '__VERSION__'
 	description: 'Add instrument fingering diagrams to the score'
 	requiresScore: true
 
@@ -518,7 +518,7 @@ MuseScore {
 		var endTick;
 		var fullScore = false;
 		var elementType;
-		var supportFingeringElement = false; // (mscoreVersion >= 30500);
+		var supportFingeringElement = (mscoreVersion >= 30500);
 		var staffChanged = 0;
 		var staffFound = [];
 

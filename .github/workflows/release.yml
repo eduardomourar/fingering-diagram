@@ -1,0 +1,32 @@
+name: release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    if: ${{ github.event.release.draft == true }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check name and tag
+        run: |
+          echo 'name: ${{ github.event.release.name }}'
+          echo 'tag_name: ${{ github.event.release.tag_name }}'
+          exit 1
+
+      - uses: actions/checkout@v3
+
+      - name: Add files and publish release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+            VERSION=$(echo $TAG_NAME | sed -e 's/^v//')
+            sed -i '' "s/__VERSION__/${VERSION}/" fingeringdiagram.qml
+            zip fingering-diagram-${TAG_NAME}.zip fingeringdiagram.qml LICENSE README.md
+            gh release upload ${TAG_NAME} fingering-diagram-${TAG_NAME}.zip
+            gh release edit --draft=false ${TAG_NAME}
