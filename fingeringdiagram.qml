@@ -518,7 +518,7 @@ MuseScore {
 		var endTick;
 		var fullScore = false;
 		var elementType;
-		var supportFingeringElement = false; // (mscoreVersion >= 30500);
+		var supportFingeringElement = (mscoreVersion >= 30500);
 		var staffChanged = 0;
 		var staffFound = [];
 
