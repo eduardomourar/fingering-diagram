@@ -1,0 +1,33 @@
+name: release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    if: ${{ github.event.release.draft }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check name and tag
+        run: |
+          echo 'name: ${{ github.event.release.name }}'
+          echo 'tag_name: ${{ github.event.release.tag_name }}'
+          exit 1
+
+      - uses: actions/checkout@v3
+
+      - name: Add files to release
+        run: |
+          zip fingering-diagram-${{ github.event.release.tag_name }}.zip fingeringdiagram.qml LICENSE README.md
+          gh release upload ${{ github.event.release.tag_name }} fingering-diagram-${{ github.event.release.tag_name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish draft release
+        run: gh release edit --draft=false ${{ github.event.release.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
