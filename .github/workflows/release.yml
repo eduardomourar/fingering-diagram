@@ -6,7 +6,7 @@ on:
 
 jobs:
   publish:
-    if: ${{ github.event.release.draft == false }}
+    if: ${{ github.event.release.draft == true }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
