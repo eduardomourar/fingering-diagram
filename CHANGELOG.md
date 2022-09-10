@@ -1,9 +1,4 @@
-## [1.6.0](https://github.com/eduardomourar/fingering-diagram/compare/v1.5.0...v1.6.0) (2021-04-25)
-
-
-### Bug Fixes
-
-* Fix for "Method names cannot begin with an upper case letter" ([#23](https://github.com/eduardomourar/fingering-diagram/issues/23)) - Thanks to @nucklearproject
+# Changelog
 
 ## [1.7.0](https://github.com/eduardomourar/fingering-diagram/compare/v1.6.0...v1.7.0) (2022-09-10)
 
@@ -11,6 +6,13 @@
 ### Features
 
 * use fingering element by default ([#25](https://github.com/eduardomourar/fingering-diagram/issues/25)) ([9f4a44f](https://github.com/eduardomourar/fingering-diagram/commit/9f4a44f600d43cee7be13dcc2d487f22c12c2623))
+
+## [1.6.0](https://github.com/eduardomourar/fingering-diagram/compare/v1.5.0...v1.6.0) (2021-04-25)
+
+
+### Bug Fixes
+
+* Fix for "Method names cannot begin with an upper case letter" ([#23](https://github.com/eduardomourar/fingering-diagram/issues/23)) - Thanks to @nucklearproject
 
 ## [1.5.0](https://github.com/eduardomourar/fingering-diagram/compare/v1.4.0...v1.5.0) (2020-11-25)
 
