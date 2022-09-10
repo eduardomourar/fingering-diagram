@@ -20,14 +20,11 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: Add files to release
+      - name: Add files and publish release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
         run: |
-          zip fingering-diagram-${{ github.event.release.tag_name }}.zip fingeringdiagram.qml LICENSE README.md
-          gh release upload ${{ github.event.release.tag_name }} fingering-diagram-${{ github.event.release.tag_name }}.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish draft release
-        run: gh release edit --draft=false ${{ github.event.release.tag_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            zip fingering-diagram-${TAG_NAME}.zip fingeringdiagram.qml LICENSE README.md
+            gh release upload ${TAG_NAME} fingering-diagram-${TAG_NAME}.zip
+            gh release edit --draft=false ${TAG_NAME}
