@@ -1,32 +1,75 @@
 name: release
 
 on:
+  # workflow_dispatch:
   release:
-    types: [published]
+    types:
+      - published
+      - created
+      - edited
+
+env:
+  TAG_NAME: ${{ github.event.release.tag_name }}
 
 jobs:
   publish:
-    if: ${{ github.event.release.draft == true }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      - name: Check name and tag
+      - name: Check release details
         run: |
           echo 'name: ${{ github.event.release.name }}'
-          echo 'tag_name: ${{ github.event.release.tag_name }}'
+          echo 'tag_name: ${TAG_NAME}'
+          echo 'draft: ${{ github.event.release.draft }}'
+          echo 'contains_zip: ${{ contains(github.event.release.assets.*.content_type, 'application/zip') }}'
           exit 1
 
       - uses: actions/checkout@v3
 
       - name: Add files and publish release
+        if: ${{ github.event.release.draft == true }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.event.release.tag_name }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-            VERSION=$(echo $TAG_NAME | sed -e 's/^v//')
-            sed -i '' "s/__VERSION__/${VERSION}/" fingeringdiagram.qml
+            sed -i "s/__VERSION__/${TAG_NAME#v}/" fingeringdiagram.qml
             zip fingering-diagram-${TAG_NAME}.zip fingeringdiagram.qml LICENSE README.md
             gh release upload ${TAG_NAME} fingering-diagram-${TAG_NAME}.zip
             gh release edit --draft=false ${TAG_NAME}
+
+  label:
+    if: ${{ github.event.release.draft == true }}
+    needs: [publish]
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      repository-projects: read
+    steps:
+      - name: Add label to PR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh label create --color '#ededed' 'autorelease: published' 2> /dev/null || echo 'Label exists'
+          PR_NUMBER=$(gh pr list --state merged --label 'autorelease: tagged' --json number --jq '.[0].number')
+          gh pr edit ${PR_NUMBER} --add-label 'autorelease: published'
+
+  comments:
+    if: ${{ github.event.action == 'published' }}
+    needs: [publish]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: apexskier/github-release-commenter@v1
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          comment-template: |
+            :tada: This change has been included in version {release_name} :tada:
+
+            The release is available on:
+            - `{release_tag}`
+            - [GitHub release]({release_link})
+
+            Your **[release-please](https://github.com/googleapis/release-please)** bot :rocket::pray:
