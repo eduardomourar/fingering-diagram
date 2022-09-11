@@ -455,7 +455,7 @@ MuseScore {
 		72: 'wind.flutes.flute.piccolo',
 		73: 'wind.flutes.flute',
 		74: 'wind.flutes.recorder'
-		};
+	};
 	property variant offsetY : 4; // When fingering element not available
 	property variant offsetX : 0.5; // When fingering element not available
 	property variant fontSize : 42;
@@ -532,9 +532,9 @@ MuseScore {
 		var cursor = curScore.newCursor();
 		cursor.rewind(1); // start of selection
 		if (!cursor.segment) { // no selection
-			fullScore  = true;
+			fullScore = true;
 			startStaff = 0; // start with 1st staff
-			endStaff   = curScore.nstaves - 1; // and end with last
+			endStaff = curScore.nstaves - 1; // and end with last
 			console.log('Full score staves ' + startStaff + ' - ' + endStaff);
 		} else {
 			startStaff = cursor.staffIdx;
