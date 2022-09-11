@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/eduardomourar/fingering-diagram/compare/v1.7.0...v1.7.1) (2022-09-11)
+
+
+### Bug Fixes
+
+* support older version of qt quick ([#28](https://github.com/eduardomourar/fingering-diagram/issues/28)) ([3430cc1](https://github.com/eduardomourar/fingering-diagram/commit/3430cc1db87d8c5f93ed1902c9dfcc23065b024f))
+
 ## [1.7.0](https://github.com/eduardomourar/fingering-diagram/compare/v1.6.0...v1.7.0) (2022-09-10)
 
 
