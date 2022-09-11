@@ -8,7 +8,7 @@
 //
 //  Copyright (c) 2019-2022 Eduardo Rodrigues
 //=============================================================================
-import QtQuick 2.9
+import QtQuick 2.8
 import QtQuick.Dialogs 1.1
 import MuseScore 3.0
 
