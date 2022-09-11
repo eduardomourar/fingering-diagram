@@ -6,39 +6,35 @@ on:
     types:
       - published
       - created
-      - edited
-
-env:
-  TAG_NAME: ${{ github.event.release.tag_name }}
+      - released
 
 jobs:
   publish:
+    if: ${{ !github.event.release.draft }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Check release details
         run: |
+          echo 'action: ${{ github.event.action }}'
           echo 'name: ${{ github.event.release.name }}'
-          echo 'tag_name: ${TAG_NAME}'
+          echo 'tag_name: ${{ github.event.release.tag_name }}'
           echo 'draft: ${{ github.event.release.draft }}'
           echo 'contains_zip: ${{ contains(github.event.release.assets.*.content_type, 'application/zip') }}'
-          exit 1
 
       - uses: actions/checkout@v3
 
       - name: Add files and publish release
-        if: ${{ github.event.release.draft == true }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
         run: |
             sed -i "s/__VERSION__/${TAG_NAME#v}/" fingeringdiagram.qml
             zip fingering-diagram-${TAG_NAME}.zip fingeringdiagram.qml LICENSE README.md
             gh release upload ${TAG_NAME} fingering-diagram-${TAG_NAME}.zip
-            gh release edit --draft=false ${TAG_NAME}
 
   label:
-    if: ${{ github.event.release.draft == true }}
     needs: [publish]
     runs-on: ubuntu-latest
     permissions:
@@ -54,7 +50,6 @@ jobs:
           gh pr edit ${PR_NUMBER} --add-label 'autorelease: published'
 
   comments:
-    if: ${{ github.event.action == 'published' }}
     needs: [publish]
     runs-on: ubuntu-latest
     permissions:
