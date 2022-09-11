@@ -1,11 +1,8 @@
 name: release
 
 on:
-  # workflow_dispatch:
   release:
     types:
-      - published
-      - created
       - released
 
 jobs:
@@ -41,6 +38,8 @@ jobs:
       pull-requests: write
       repository-projects: read
     steps:
+      - uses: actions/checkout@v3
+
       - name: Add label to PR
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -64,7 +63,6 @@ jobs:
             :tada: This change has been included in version {release_name} :tada:
 
             The release is available on:
-            - `{release_tag}`
-            - [GitHub release]({release_link})
+            - `{release_link}`
 
             Your **[release-please](https://github.com/googleapis/release-please)** bot :rocket::pray:
