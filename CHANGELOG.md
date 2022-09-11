@@ -7,11 +7,6 @@
 
 * minor formatting issue ([#30](https://github.com/eduardomourar/fingering-diagram/issues/30)) ([e3e8da9](https://github.com/eduardomourar/fingering-diagram/commit/e3e8da94b6f6903d5824723c1fb5454bda1026c9))
 
-
-### Miscellaneous Chores
-
-* release 1.7.2 ([ca6d41d](https://github.com/eduardomourar/fingering-diagram/commit/ca6d41d8c1c37308a2880affdc1e82aa2989844c))
-
 ## [1.7.1](https://github.com/eduardomourar/fingering-diagram/compare/v1.7.0...v1.7.1) (2022-09-11)
 
 
