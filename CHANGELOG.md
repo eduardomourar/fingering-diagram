@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://github.com/eduardomourar/fingering-diagram/compare/v1.7.1...v1.8.0) (2022-09-11)
+
+
+### Features
+
+* use fingering element by default ([#25](https://github.com/eduardomourar/fingering-diagram/issues/25)) ([9f4a44f](https://github.com/eduardomourar/fingering-diagram/commit/9f4a44f600d43cee7be13dcc2d487f22c12c2623))
+
+
+### Bug Fixes
+
+* support older version of qt quick ([#28](https://github.com/eduardomourar/fingering-diagram/issues/28)) ([3430cc1](https://github.com/eduardomourar/fingering-diagram/commit/3430cc1db87d8c5f93ed1902c9dfcc23065b024f))
+
 ## [1.7.1](https://github.com/eduardomourar/fingering-diagram/compare/v1.7.0...v1.7.1) (2022-09-11)
 
 
