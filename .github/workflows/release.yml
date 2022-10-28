@@ -1,40 +1,46 @@
 name: release
 
 on:
-  release:
-    types:
-      - released
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   publish:
-    if: !github.event.release.draft && !github.event.release.prerelease
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
-      - name: Check release details
-        run: |
-          echo 'action: ${{ github.event.action }}'
-          echo 'name: ${{ github.event.release.name }}'
-          echo 'tag_name: ${{ github.event.release.tag_name }}'
-          echo 'draft: ${{ github.event.release.draft }}'
-          echo 'contains_zip: ${{ contains(github.event.release.assets.*.content_type, 'application/zip') }}'
-
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          command: manifest
+          config-file: .github/release-please-config.json
+          manifest-file: .github/release-please-manifest.json
       - uses: actions/checkout@v3
-
       - name: Add files and publish release
+        if: ${{ steps.release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          TAG_NAME: ${{ github.event.release.tag_name }}
+          TAG_NAME: ${{ steps.release.outputs.tag_name }}
         run: |
-            sed -i "s/__VERSION__/${TAG_NAME#v}/" fingeringdiagram.qml
-            zip fingering-diagram-${TAG_NAME}.zip fingeringdiagram.qml LICENSE README.md
-            gh release upload ${TAG_NAME} fingering-diagram-${TAG_NAME}.zip
+          sed -i "s/__VERSION__/${TAG_NAME:v*}/" fingeringdiagram.qml
+          zip fingering-diagram-${TAG_NAME}.zip fingeringdiagram.qml LICENSE README.md
+          gh release upload ${TAG_NAME} fingering-diagram-${TAG_NAME}.zip
 
   label:
     needs: [publish]
+    if: ${{ needs.publish.outputs.release_created }}
     runs-on: ubuntu-latest
     permissions:
+      issues: write
       pull-requests: write
       repository-projects: read
     steps:
@@ -50,6 +56,7 @@ jobs:
 
   comments:
     needs: [publish]
+    if: ${{ needs.publish.outputs.release_created }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -60,9 +67,9 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ github.token }}
           comment-template: |
-            :tada: This change has been included in version {release_name} :tada:
+            :tada: This change has been included in ${{ needs.publish.outputs.tag_name }} :tada:
 
             The release is available on:
-            - `{release_link}`
+            - GitHub releases: {release_link}
 
             Your **[release-please](https://github.com/googleapis/release-please)** bot :rocket::pray:
