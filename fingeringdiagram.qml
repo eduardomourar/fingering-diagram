@@ -6,7 +6,7 @@
 //  Requires Fiati music font that can found here:
 //     https://github.com/eduardomourar/fiati
 //
-//  Copyright (c) 2019-2022 Eduardo Rodrigues
+//  Copyright (c) 2019-2023 Eduardo Rodrigues
 //=============================================================================
 import QtQuick 2.8
 import QtQuick.Dialogs 1.1
