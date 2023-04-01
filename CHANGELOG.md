@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/eduardomourar/fingering-diagram/compare/v1.7.2...v1.7.3) (2023-04-01)
+
+
+### Bug Fixes
+
+* update copyright year to 2023 ([#33](https://github.com/eduardomourar/fingering-diagram/issues/33)) ([027a287](https://github.com/eduardomourar/fingering-diagram/commit/027a287cab70822c9940b7190b3060d7331a7914))
+
 ## [1.7.2](https://github.com/eduardomourar/fingering-diagram/compare/v1.7.1...v1.7.2) (2022-09-11)
 
 
